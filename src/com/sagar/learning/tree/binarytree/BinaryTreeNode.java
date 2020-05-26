@@ -1,4 +1,4 @@
-package com.sagar.learning.tree;
+package com.sagar.learning.tree.binarytree;
 
 /**
  * Created by sagarsingh on 2019-12-27
@@ -39,12 +39,21 @@ public class BinaryTreeNode<V> {
     @Override
     protected BinaryTreeNode<V> clone() {
         BinaryTreeNode<V> newNode = new BinaryTreeNode<>(this.value);
-        if(this.left!=null) {
+        if (this.left != null) {
             newNode.setLeft(this.left.clone());
         }
-        if(this.right!=null) {
+        if (this.right != null) {
             newNode.setRight(this.right.clone());
         }
         return newNode;
+    }
+
+    @Override
+    public String toString() {
+        return "BinaryTreeNode{" +
+                "value=" + value +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
     }
 }

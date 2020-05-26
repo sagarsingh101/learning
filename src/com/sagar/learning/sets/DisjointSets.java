@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by sagarsingh on 2020-01-25
  */
-public class DisjoinSets {
+public class DisjointSets {
     Map<Integer,SetNode> dataMap = new HashMap<>();
 
     public SetNode makeSet(Integer data) {

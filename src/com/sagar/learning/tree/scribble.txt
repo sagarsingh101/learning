@@ -1,0 +1,73 @@
+
+ public BinaryTreeNode<V> getInOrderSuccessor(V value) {
+        BinaryTreeNode<V> node = findNode(value);
+        if (node.right != null) return leftMostNode(node);
+        if (node == root) return null;
+        return getParent(node);
+    }
+
+
+
+
+
+private BinaryTreeNode<V> getNodeUsingComparator(V value) {
+        BinaryTreeNode<V> curr = root;
+        while (curr != null) {
+            int cmp = comparator.compare(curr.value, value);
+            if (cmp < 0) {
+                curr = curr.left;
+            } else if (cmp > 0) {
+                curr = curr.right;
+            } else {
+                return curr;
+            }
+        }
+        return null;
+    }
+
+    protected BinaryTreeNode<V> leftMostNode(BinaryTreeNode<V> node) {
+        if (node == null) return null;
+        leftMostNode(node.left);
+        return node;
+    }
+
+    protected BinaryTreeNode<V> getParent(BinaryTreeNode<V> node) {
+        if (root == node) return root;
+        if (comparator != null) {
+            return getParentUsingComparator(node);
+        }
+        Comparable<? super V> v = (Comparable<? super V>) node.value;
+        BinaryTreeNode<V> p = root;
+        BinaryTreeNode<V> curr = root;
+        while (curr != null) {
+            int cmp = v.compareTo(curr.value);
+            p = curr;
+            if (cmp < 0) {
+                curr = curr.left;
+            } else {
+                curr = curr.right;
+            }
+            if (curr == node) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    private BinaryTreeNode<V> getParentUsingComparator(BinaryTreeNode<V> node) {
+        BinaryTreeNode<V> p = root;
+        BinaryTreeNode<V> curr = root;
+        while (curr != null) {
+            int cmp = comparator.compare(curr.value, node.value);
+            p = curr;
+            if (cmp < 0) {
+                curr = curr.left;
+            } else {
+                curr = curr.right;
+            }
+            if (curr == node) {
+                return p;
+            }
+        }
+        return null;
+    }
