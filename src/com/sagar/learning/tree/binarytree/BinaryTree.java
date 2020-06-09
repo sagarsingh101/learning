@@ -8,6 +8,8 @@ import java.util.List;
 public interface BinaryTree<V> {
     void insert(V value);
 
+    void insert(V...values);
+
     boolean exists(V value);
 
     List<V> inorder();

@@ -1,0 +1,34 @@
+Coin Change problem comes in Two Variations but all with same input
+
+Input - > Give a Sum K , and a array of coins C : [c1,c2,c3]
+
+Variations :
+1. Find Minimum number of coins required to make K
+    SubVariation
+    1. Each coin can be used multiple times
+         Solution -> Here we use the intuition that to reach a sum k , would take one extra coin if we were on
+         sum K-c1 or K-c2 ......
+         Building from bottom we get
+         We start from 1 and go upto K building min number of coins required for each, then
+         for any sum k (where k<K) , for each coin just take minimum from all possible i :  Count[k-C[i]] + 1;
+         By default Ways[k] = K+1
+         For a giver k For a Coin c - > Ways[k] = Math.min(Ways[k-c]+1,Ways[k]);
+
+
+      2. Each coin can only be used once
+      Solution : Here the complexity is that we need to keep track if the present coin has been already used in the
+      previous sum we are trying to get.
+      dp[i][j] which represents ith sum using till jth coins we use the following relation
+      dp[i][j] = Math.min(dp[i-C[j][j-1],dp[i][j-1]) , here the first term means using the jth coin , meaning we need to
+      ignore the use of jth coin to achieve sum i-C[j].  The second term indicates not using the jth coin , hence we
+      take min ways achieved by using j-1 coins.
+
+
+ 2. Count the number of ways to make K
+       1. Each coin can be used multiple times
+       Solution - > Similar to 1.1 , but in this case first we calculate the number of sums possible using a particular
+       coin ,
+       ForEach c in C , and for k in c to K , dp[k]+=dp[k-c];
+
+       2. Each can be used only once
+       dp[i][j] = dp[i-C[j]][j-1] + dp[i][j-1];

@@ -15,6 +15,10 @@ public abstract class AbstractBinaryTree<V> implements BinaryTree<V> {
         insert(new BinaryTreeNode<>(value));
     }
 
+    @Override
+    public void insert(V... values) {
+        for(V value:values) this.insert(value);
+    }
 
     private void insert(BinaryTreeNode<V> node) {
         if (root == null) {

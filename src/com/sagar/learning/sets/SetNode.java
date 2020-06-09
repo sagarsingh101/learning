@@ -7,4 +7,9 @@ public class SetNode {
     SetNode parent;
     int data;
     int rank;
+
+    public SetNode(int data) {
+        this.data = data;
+        this.parent = this;
+    }
 }

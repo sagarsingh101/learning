@@ -4,9 +4,9 @@ package com.sagar.learning.tree.binarytree;
  * Created by sagarsingh on 2019-12-27
  */
 public class BinaryTreeNode<V> {
-    V value;
-    BinaryTreeNode<V> left;
-    BinaryTreeNode<V> right;
+    public V value;
+    public BinaryTreeNode<V> left;
+    public BinaryTreeNode<V> right;
 
     public BinaryTreeNode(V value) {
         this.value = value;
