@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Created by sagarsingh on 2020-05-24
  */
-public class SimpleBST<V> extends AbstractBinaryTree<V> implements BinarySearchTree<V> {
+public class SimpleBST<V>  extends AbstractBinaryTree<V> implements BinarySearchTree<V> {
     protected final Comparator<V> comparator;
 
     public SimpleBST() {

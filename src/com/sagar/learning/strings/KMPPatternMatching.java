@@ -1,11 +1,25 @@
-package com.sagar.learning.patterns;
+package com.sagar.learning.strings;
 
 /**
  * Created by sagarsingh on 2020-05-26
  */
 public class KMPPatternMatching {
 
-    public static boolean matchPatttern(String input, String pattern) {
+    public static boolean matchPattern(String input, String pattern) {
+        int[] lps = computeLPS(pattern);
+        int i=0,j=0;
+        while(i<input.length()) {
+            if (input.charAt(i)==pattern.charAt(j)) {
+                if(j==pattern.length()-1) {
+                    return true;
+                }
+                j++;
+            } else {
+                if(j!=0)
+                j=lps[j-1];
+            }
+            i++;
+        }
         return false;
     }
 

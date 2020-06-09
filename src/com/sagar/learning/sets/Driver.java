@@ -5,7 +5,7 @@ package com.sagar.learning.sets;
  */
 public class Driver {
     public static void main(String[] args) {
-        DisjointSets disjointSets = new DisjointSets();
+        NodeDisjointSet disjointSets = new NodeDisjointSet();
         for (int i = 1; i <= 7; i++) disjointSets.makeSet(i);
         disjointSets.union(1, 2);
         disjointSets.union(2, 3);
